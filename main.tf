@@ -40,6 +40,22 @@ resource "newrelic_one_dashboard" "task_terr_dash" {
           }
         }
       }
+       dynamic "widget_bullet" {
+        # for_each = page.value.bar
+        for_each = page.value.widget_bullet_status == true ? page.value.bullet:{}
+        iterator = widgets
+        content {
+          title  = widgets.value.title
+          row    = widgets.value.row
+          column = widgets.value.column
+          height = widgets.value.height
+          width  = widgets.value.width
+          limit = 10
+          nrql_query {
+            query = widgets.value.query
+          }
+        }
+      }
       dynamic "widget_area" {
         for_each =page.value.widget_area_status == true ? page.value.area:{}
         # for_each = page.value.billboard

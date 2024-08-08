@@ -10,6 +10,7 @@ dashboard = {
         widget_line_status=false
         widget_billboard_status=true
         widget_table_status=false
+        widget_bullet_status=true
         pagename = "Page 1"
         pie = {
           "key2" = {
@@ -19,14 +20,17 @@ dashboard = {
             width  = 6
             height = 3
             query  = "FROM Transaction SELECT apdex(duration, 0.5) WHERE appName = 'apm-vs-relicstaurants' SINCE 2 days ago"
-          },
-          "key3" = {
-            title  = "duration"
+          }
+        }
+        bullet={
+         
+             "key3" = {
+            title  = "receiveBytesPerSecond"
             row    = 1
             column = 7
             width  = 6
             height = 3
-            query  = "FROM Transaction SELECT average(duration)  WHERE appName = 'apm-vs-relicstaurants' SINCE 2 days ago"
+            query  = "FROM NetworkSample SELECT average(receiveBytesPerSecond) WHERE entityName='CEQ-ICT-LAPTOP-269'"
           }
         }
         bar = {
@@ -59,6 +63,7 @@ dashboard = {
         widget_line_status=true
         widget_billboard_status=false
         widget_table_status=true
+        widget_bullet_status=false
         pagename = "Page 2"
         area = {
           "key11" = {
