@@ -62,7 +62,7 @@ dashboard = {
         pagename = "Page 2"
         area = {
           "key11" = {
-            title  = "1"
+            title  = "cpuIdlePercent"
             row    = 1
             column = 1
             width  = 6
@@ -73,7 +73,7 @@ dashboard = {
         }
         line = {
           "key16" = {
-            title  = "3"
+            title  = "memoryUsedPercent"
             row    = 1
             column = 7
             width  = 6
@@ -86,7 +86,7 @@ dashboard = {
         },
         billboard={
             "key16" = {
-            title  = "3"
+            title  = "diskUsedPercent"
             row    = 4
             column = 1
             width  = 6
@@ -97,17 +97,13 @@ dashboard = {
           table={
             "key16" = {
             title  = "3"
-            row    = 4
-            column = 7
+            row    = 7
+            column = 1
             width  = 6
             height = 3
-            query  = "FROM StorageSample SELECT average(diskUsedPercent) WHERE entityName='CEQ-ICT-LAPTOP-269'"
+            query  = "FROM NetworkSample SELECT average(receiveBytesPerSecond) WHERE entityName='CEQ-ICT-LAPTOP-269'"
           }
-#           SELECT average(diskUsedPercent) AS 'Disk Usage (%)' 
-# FROM StorageSample WHERE entityName ='CEQ-ICT-LAPTOP-269'
-# FACET hostname, device 
-# SINCE 1 hour ago 
-# LIMIT 100
+
         }
         
       }
